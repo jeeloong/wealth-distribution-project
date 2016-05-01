@@ -2,7 +2,6 @@
 body {
     font-family: 'Roboto', sans-serif;
     font-size: 15px;
-
 }
 
 h1 {
@@ -67,6 +66,38 @@ stroke-width: 3px;
     font-weight: 600;
     font-style: italic;
     font-size: 15px;
+}
+
+/* Row with equal height columns */
+/* http://getbootstrap.com.vn/examples/equal-height-columns/ */
+.info-row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    text-align: center;
+}
+
+.info_header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.info_label {
+    text-align: center;
+}
+
+.info_data {
+    text-align: center;
+    font-style: italic;
+    color: red;
+}
+
+#info_tip {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    color: red;
 }
 
 /*==========================================================================*/

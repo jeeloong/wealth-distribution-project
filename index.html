@@ -137,10 +137,62 @@
         </div>
     </div>
     <div id="section22" class="container-fluid">
+        <!-- Container for the slider -->
         <div class="row">
             <div class="col-md-12">
                 <!-- Visualization placeholders -->
+                <div class="container_slider">
+                    <div class="col-xs-1"><p class="info_slider">Year</p></div>
+                    <div class="col-sm-10"><p id="rangeSlider_WealthDistribution" class="slider"></p></div>
+                    <div class="col-xs-1"><p id="slider_year_WealthDistribution" class="info_slider">2014</p></div>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <div class="col-md-8">
+                <!-- Visualization placeholders -->
                 <div id="area-chart"></div>
+            </div>
+            <div class="col-md-4">
+
+                <!-- Container for info -->
+                <div class="container_info">
+
+                    <h3 id="info_wealth_year" class="info_header">Year</h3>
+
+                    <div class="info-row-eq-height">
+                        <div class="col-xs-8 info_label"><p>Top 1%</p></div>
+                        <div class="col-xs-8"><p id="info_wealth_top1" class="info_data">-</p></div>
+                    </div>
+
+                    <div class="info-row-eq-height">
+                        <div class="col-xs-8 info_label"><p>Top 5%</p></div>
+                        <div class="col-xs-8"><p id="info_wealth_top5" class="info_data">-</p></div>
+                    </div>
+
+                    <div class="info-row-eq-height">
+                        <div class="col-xs-8 info_label"><p>Top 10%</p></div>
+                        <div class="col-xs-8"><p id="info_wealth_top10" class="info_data">-</p></div>
+                    </div>
+
+                    <div class="info-row-eq-height">
+                        <div class="col-xs-8 info_label"><p>All</p></div>
+                        <div class="col-xs-8"><p id="info_wealth_all" class="info_data">-</p></div>
+                    </div>
+
+                    <div class="info-row-eq-height">
+                        <div class="col-xs-8 info_label"><p>Bottom 90%</p></div>
+                        <div class="col-xs-8"><p id="info_wealth_bottom90" class="info_data">-</p></div>
+                    </div>
+
+                    <div class="info-row-eq-height" style="justify-content:center">
+                        <input type="button" id="btnChangeScale" value="Linear Scale"/>
+                    </div>
+                </div>
+
+                <!-- Visualization placeholders -->
+                <div id="wealth-circle-chart"></div>
             </div>
         </div>
     </div>
@@ -179,7 +231,7 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Visualization placeholders -->
-                <div id="container_slider">
+                <div class="container_slider">
                     <div class="col-xs-1"><p class="info_slider">Year</p></div>
                     <div class="col-sm-10"><p id="rangeSlider" class="slider"></p></div>
                     <div class="col-xs-1"><p id="slider_year" class="info_slider">2014</p></div>
@@ -189,7 +241,6 @@
         <div class="row">
             <div class="col-md-12">
                 <!-- Visualization placeholders -->
-                <span>Income Bar Chart</span>
                 <div id="income-bar-chart"></div>
             </div>
         </div>

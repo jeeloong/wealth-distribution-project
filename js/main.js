@@ -17,6 +17,7 @@ var colorScale = d3.scale.category10();
 // Variables for the visualization instances
 var choropleth, timeline, areaChart, lineChart, smallMultiples, householdIncome, barChart;
 
+var formatYear = d3.format("Y");
 var formatCurrency = d3.format("$s");
 var formatTooltipCurrency = d3.format("$,");
 var formatInteger = d3.format("d");
@@ -46,7 +47,8 @@ function loadData(error, dataCSV, statesJson, average_wealth_data, household_inc
         // Average Wealth
         // ***********************************************************************
         average_wealth_data.forEach(function (d) {
-            d.Year = parseYear(d.Year);
+            //d.Year = parseYear(d.Year);
+            d["Year"] = +d["Year"];
         });
 
         // Filter out data before 1980
@@ -107,7 +109,7 @@ function createVis() {
 	// TO-DO: Instantiate visualization objects here
 	//areachart = new StackedAreaChart("stacked-area-chart", allData.layers)
     //	timeline = new Timeline("timeline", allData);
-	areaChart = new AreaChart("area-chart", average_wealth_dataset);
+	areaChart = new AreaChart("area-chart", "wealth-circle-chart", average_wealth_dataset);
     householdIncome = new HouseholdIncome("income-bar-chart", household_income_dataset_dc);
     smallMultiples = new SmallMultiples("small-multiples", household_income_dataset);
     barChart = new BarChart("bar-chart", average_real_wealth_per_family_dataset);

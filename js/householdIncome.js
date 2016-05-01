@@ -211,7 +211,7 @@ HouseholdIncome.prototype.updateVis = function(){
         .attr("y2", function (d) { return vis.yScale(d["Median Household Income"]); });
 
     vis.usLineLabel.enter().append("text")
-        .attr("class", "label-us-income")
+        .attr("class", "2")
         .attr("id", "label-us-income")
         .attr("dx", 12)
         .attr("dy", ".35em");
@@ -267,7 +267,7 @@ HouseholdIncome.prototype.updateVis = function(){
 
     /*==========================================================================*/
     /* Exit
-     /*==========================================================================*/
+    /*==========================================================================*/
     vis.barChart.exit()
         .transition() // transition exiting
         .remove();
