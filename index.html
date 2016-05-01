@@ -76,7 +76,20 @@
             <li>The Top 1 Percent Of Americans Own Half Of The Country’s Stocks, Bonds, And Mutual Funds</li>
         </ul>
         <p>*source: CNN Money and Business Insider</p>
+        <p>
+            We hope that you will be able to learn something new and answered few questions about wealth distribution in USA.
+            It gets even more interesting if you start searching and will try to compare US to other countries.
+            If we spark your interest, we encourage you to go ahead and explore further.
+            You can start by looking at this
+            <a href="https://en.wikipedia.org/wiki/List_of_countries_by_distribution_of_wealth">list</a>
+            of countries by distribution of wealth
+            </br></br>
+            Happy exploring!
+
+        </p>
     </div>
+
+
 
     <div id="section11" class="container-fluid">
 
@@ -90,19 +103,20 @@
         </div>
     </div>
     <div id="section12" class="container-fluid">
-        <div class="col-md-12">
-            <!-- Visualization placeholders -->
-            <div id="choropleth-container-slider">
-                <div class="col-xs-1"><p class="choropleth-slider">$0.00</p></div>
-                <div class="col-sm-10"><p id="choropleth-range-slider" class="slider"></p></div>
-                <div class="col-xs-1"><p id="slider-income" class="info_slider">$100,000</p></div>
+        <div class="row well" style="margin-bottom:10px; height:130px;">
+            <div class="col-md-12" >
+                <!-- Visualization placeholders -->
+                <input type="text" id="input-with-keypress" style="margin-bottom:5px;">
+            </div>
+            <div class="col-md-12" >
+                <div id="keypress"></div>
             </div>
         </div>
-        <div class="row">
+        <div class="row" style="margin-top:100px;">
             <div class="col-md-8">
                 <!-- Visualization placeholders -->
                 <div class=".d3-tip"></div>
-                <div id="map"></div>
+                <div id="choropleth"></div>
                 <div class="clearfix"></div>
             </div>
             <div class="col-md-4">
@@ -110,7 +124,7 @@
                 <div class="clearfix"></div>
                 <div id="income-line-chart-desc" class="col-md-10">
                     <p>A household income of $100,000 places you in the</p>
-                    <p id="per-user" class="per-user"></p>
+                    <div id="per-user" class="per-user"></div>
                     <p>of people who live there.</p>
                 </div>
                 <div class="clearfix"></div>
@@ -203,7 +217,8 @@
                 <div class="bs-callout bs-callout-info">
                     Here is another look at the distribution of wealth. As you can see the top 400 earners in America drastically make way more than the rest of the population.
                     <br>
-                    So much so that the bottom 95% (95% of American Households) don't even show up.
+                    So much so that the bottom 95% (95% of American Households) don't even show up.<br>
+                    (*2012 Top .01% data was not avilable in dataset)
                 </div>
             </div>
         </div>
@@ -388,23 +403,7 @@
             </div>
         </div>
     </div>
-    <div id="section51" class="container-fluid">
-        <div class="row">
-            <div class="intro-text-bottom">
-                <p>
-                    We hope that you were able to learn something new and answered few questions about wealth distribution in USA.
-                    It gets even more interesting if you start searching and will try to compare US to other countries.
-                    If we sparked your interest, we encourage you to go ahead and explore further.
-                    You can start by looking at this list
-                    <a href="https://en.wikipedia.org/wiki/List_of_countries_by_distribution_of_wealth">list</a>
-                    of countries by distribution of wealth
-                    </br></br>
-                    Happy exploring!
 
-                </p>
-            </div>
-        </div>
-    </div>
 
     <!-- Modal Box-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -443,8 +442,6 @@
     <script src="js/us_states.js"></script>
 
     <!-- Visualization objects -->
-    <script src="js/us_states2.js"></script>
-    <script src="js/rates2.js"></script>
     <script src="js/choropleth2.js"></script>
 
     <!--<script src="js/timeline.js"></script>-->
