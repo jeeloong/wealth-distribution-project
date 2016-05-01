@@ -26,23 +26,23 @@ var format2DP = d3.format(".2f");
 // Start application by loading the data
 queue()
 	.defer(d3.csv,  "data/wid_world_income_distribution.csv")
-	.defer(d3.json, "data/us-states.json")
+	.defer(d3.json, "data/us_states.json")
 	.defer(d3.csv,  "data/average_wealth.csv")
     .defer(d3.csv,  "data/census_median_household_income.csv")
     .defer(d3.csv,  "data/census_median_household_income_dc.csv")
     .defer(d3.csv,  "data/berkeley-zuckman-average-real-wealth-per-family-data.csv")
     .defer(d3.csv,  "data/top-incomes-since-1917_vs2012.csv")
-    .defer(d3.json, "data/ny-times-household-income.json")
+    .defer(d3.json, "data/rates.json")
 	.await(loadData);
 
 
-function loadData(error, dataCSV, statesJson, average_wealth_data, household_income_data, household_income_data_dc, average_real_wealth_per_family_data, top_incomes, ny_times_data){
+function loadData(error, dataCSV, us_states_data, average_wealth_data, household_income_data, household_income_data_dc, average_real_wealth_per_family_data, top_incomes, rates_data){
 	if(!error){
         allData.data = crossfilter(dataCSV);
         allData.top_incomes = crossfilter(top_incomes);
-        allData.ny_times_data = crossfilter(ny_times_data);
-        allData.statesJson = statesJson;
-        
+        allData.ratesData = rates_data;
+        allData.usStatesData = us_states_data;
+
         // ***********************************************************************
         // Average Wealth
         // ***********************************************************************
@@ -93,7 +93,6 @@ function loadData(error, dataCSV, statesJson, average_wealth_data, household_inc
         // Hand CSV data off to global var
         average_real_wealth_per_family_dataset = average_real_wealth_per_family_data;
 
-
         // ***********************************************************************
         // Create visualization
         // ***********************************************************************
@@ -113,7 +112,7 @@ function createVis() {
     householdIncome = new HouseholdIncome("income-bar-chart", household_income_dataset_dc);
     smallMultiples = new SmallMultiples("small-multiples", household_income_dataset);
     barChart = new BarChart("bar-chart", average_real_wealth_per_family_dataset);
-    //choropleth = new Choropleth("choropleth", allData);
+    choropleth = new Choropleth("choropleth", allData);
 }
 
 

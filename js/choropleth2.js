@@ -1,121 +1,239 @@
-var rateById = d3.map();
 
-// var color = d3.scale.ordinal().domain([1,2,3,4,5]).range(["#009ed8","#80e28e","#e9ec32","#f6a023","#f37124"])
+/*
+ * Timeline - Object constructor function
+ * @param _parentElement 	-- the HTML element in which to draw the visualization
+ * @param _data						-- the
+ */
 
-var color = d3.scale.ordinal().domain([0,1,2,3,4,5,6,7,8,9]).range(["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac"])
+Choropleth = function(_parentElement, _data){
+	this.parentElement = _parentElement;
+	this.data = _data;
 
-rates.forEach(function(d) {
-    var foo = 0;
-    if(d.cuts !== "undefined"){
-        if(d.cuts[50] >= 30000 && d.cuts[50] < 35000){
-            foo = 1;
-        }else if(d.cuts[50] >= 35000 && d.cuts[50] < 40000){
-            foo = 2;
-        }else if(d.cuts[50] >= 40000 && d.cuts[50] < 45000){
-            foo = 3;
-        }else if(d.cuts[50] >= 45000 && d.cuts[50] < 50000){
-            foo = 4;
-        }else if(d.cuts[50] >= 50000 && d.cuts[50] < 55000){
-            foo = 5;
-        }else if(d.cuts[50] >= 55000 && d.cuts[50] < 60000){
-            foo = 6;
-        }else if(d.cuts[50] >= 60000 && d.cuts[50] < 65000){
-            foo = 7;
-        }else if(d.cuts[50] >= 65000 && d.cuts[50] <= 70000){
-            foo = 8;
-        }else if(d.cuts[50] >= 70000 && d.cuts[50] <= 75000){
-            foo = 9;
+	// No data wrangling, no update sequence
+	this.initVis();
+}
+
+
+/*
+ * Initialize visualization (static content, e.g. SVG area or axes)
+ */
+Choropleth.prototype.initVis = function(){
+    var vis = this;
+
+    vis.numberFormat = d3.format(".2f");
+    vis.rateById = d3.map();
+    // var color = d3.scale.ordinal().domain([1,2,3,4,5]).range(["#009ed8","#80e28e","#e9ec32","#f6a023","#f37124"])
+    vis.color = d3.scale.ordinal().domain([0,1,2,3,4,5,6,7,8,9]).range(["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac"]);
+
+    vis.chosenState = "US";
+    vis.chosenIncome = 100000;
+    vis.chosenStateID = 0;
+
+
+    vis.data.ratesData.forEach(function(d) {
+        var foo = 0;
+        if(d.cuts !== "undefined"){
+            if(d.cuts[50] >= 30000 && d.cuts[50] < 35000){
+                foo = 1;
+            }else if(d.cuts[50] >= 35000 && d.cuts[50] < 40000){
+                foo = 2;
+            }else if(d.cuts[50] >= 40000 && d.cuts[50] < 45000){
+                foo = 3;
+            }else if(d.cuts[50] >= 45000 && d.cuts[50] < 50000){
+                foo = 4;
+            }else if(d.cuts[50] >= 50000 && d.cuts[50] < 55000){
+                foo = 5;
+            }else if(d.cuts[50] >= 55000 && d.cuts[50] < 60000){
+                foo = 6;
+            }else if(d.cuts[50] >= 60000 && d.cuts[50] < 65000){
+                foo = 7;
+            }else if(d.cuts[50] >= 65000 && d.cuts[50] <= 70000){
+                foo = 8;
+            }else if(d.cuts[50] >= 70000 && d.cuts[50] <= 75000){
+                foo = 9;
+            }
         }
-    }
-    //console.log(d.state +" : " +d.cuts[50] + ":" + foo);
-    rateById.set(d.id, color(+foo));
-});
+        vis.rateById.set(d.id, vis.color(+foo));
+    });
 
-us.objects.states.geometries.forEach(function(d){
-    d.properties = rates.filter(function(v){ return +v.id == +d.id; })[0];
-});
 
-var usData = rates.filter(function(v){ return +v.id == 0; })[0]
-//console.log(usData);
+    vis.data.usStatesData.objects.states.geometries.forEach(function(d){
+        d.properties = vis.data.ratesData.filter(function(v){ return +v.id == +d.id; })[0];
+    });
 
-$("#income-line-chart").html("<strong>United States</strong>");
-$("#per-99").html("<span><strong>$"+d3.format(",g")(usData.cuts[99])+"<strong></span>");
-$("#per-95").html("<span><strong>$"+d3.format(",g")(usData.cuts[95])+"<strong></span>");
-$("#per-75").html("<span><strong>$"+d3.format(",g")(usData.cuts[75])+"<strong></span>");
-$("#per-50").html("<span><strong>$"+d3.format(",g")(usData.cuts[50])+"<strong></span>");
-$("#per-25").html("<span><strong>$"+d3.format(",g")(usData.cuts[25])+"<strong></span>");
-$("#per-10").html("<span><strong>$"+d3.format(",g")(usData.cuts[10])+"<strong></span>");
+    vis.usData =  vis.data.ratesData.filter(function(v){ return +v.id == 0; })[0];
 
-$("#per-user").html("<span><strong>TOP " + (100 - arraySearch(getPercentage(usData), 100000))  + "%</strong></span>");
+    setPerInfo(vis.usData, "US", vis.chosenIncome);
 
-var width = 800, height = 450;
-var projection = d3.geo.albersUsa().scale(750).translate([width / 2, height / 2 -45]);
-var path = d3.geo.path().projection(projection);
-var margin = {top: 0, left: 10, right: 10, bottom: 10};
+    vis.width = 900;
+    vis.height = 450;
+    vis.projection = d3.geo.albersUsa().scale(1000).translate([vis.width / 2, vis.height / 2]);
+    vis.path = d3.geo.path().projection(vis.projection);
+    vis.margin = {top: 0, left: 10, right: 10, bottom: 10};
 
-var svg = d3.select("#map").append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    vis.svg = d3.select("#choropleth").append("svg")
+        .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
 
-svg.append("rect")
-    .attr("class", "background")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
-  .on("click", function(d){
-    console.log(d);
-    var p = {
-      abbr: "US",
-      rate: ".025"
-    }
-    pieAdjust(p);
-  })
-var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    vis.svg.append("rect")
+        .attr("class", "background")
+        .attr("width", vis.width + vis.margin.left + vis.margin.right)
+        .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
+        .on("click", function(d){
+            vis.chosenState = "US";
+            setPerInfo(vis.usData, "US", vis.chosenIncome);
+        });
 
-/* Initialize tooltip */
-var tip = d3.tip().html(function(d) { return d; });
+    vis.g = vis.svg.append("g").attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
 
-/* Invoke the tip in the context of your visualization */
-g.call(tip);
+    /* Initialize tooltip */
+    vis.tip = d3.tip().html(function(d) { return d; });
 
-tip.attr("class","d3-tip");
+    /* Invoke the tip in the context of your visualization */
+    vis.g.call(vis.tip);
 
-g.append("g")
-    .attr("id", "states")
-  .selectAll("path")
-      .data(topojson.feature(us, us.objects.states).features)
-  .enter().append("path")
-    .attr("class","state-area")
-    .attr("fill", function(d) {
-        return rateById.get(d.id);
-    })
-    .attr("d", path)
-    .attr("stroke","black")
-    .attr("stroke-width","2px")
-    .attr("stroke-opacity",0.2)
-    .on('mouseover', function(d){
-          var p = d.properties;
-          //pieAdjust(p);
-          return tip.show( '<span>' + p.state + '</span><p>' + "Median Household Income: <br>" + d3.format(",g")(p.cuts[50]))
-    })
-    .on('mouseout', function(d){
-          tip.hide()
-    })
-    .on('click', function(d){
-        var p = d.properties;
-        $("#income-line-chart").html(p.state);
-        $("#per-user").html("<span><strong>TOP " + (100 - arraySearch(getPercentage(p), 100000))  + "%</strong></span>");
-        $("#per-99").html("<span><strong>$"+d3.format(",g")(p.cuts[99])+"<strong></span>");
-        $("#per-95").html("<span><strong>$"+d3.format(",g")(p.cuts[95])+"<strong></span>");
-        $("#per-75").html("<span><strong>$"+d3.format(",g")(p.cuts[75])+"<strong></span>");
-        $("#per-50").html("<span><strong>$"+d3.format(",g")(p.cuts[50])+"<strong></span>");
-        $("#per-25").html("<span><strong>$"+d3.format(",g")(p.cuts[25])+"<strong></span>");
-        $("#per-10").html("<span><strong>$"+d3.format(",g")(p.cuts[10])+"<strong></span>");
-    })
+    vis.keypressSlider = document.getElementById('keypress');
+    vis.input = document.getElementById('input-with-keypress');
 
-g.append("path")
-    .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
-    .attr("id", "state-borders")
-    .attr("d", path);
+    noUiSlider.create(vis.keypressSlider, {
+        start: [ 100000 ],
+        step: 10,
+        range: {
+            'min': [  1000 ],
+            'max': [ 400000 ]
+        },
+        pips: {
+            mode: 'values',
+            values: [1000, 100000, 200000, 300000, 400000],
+            density: 4
+        }
+    });
+
+    //http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/
+    this.wrangleData();
+}
+
+Choropleth.prototype.wrangleData = function(){
+    var vis = this;
+
+
+
+    this.updateVis();
+}
+
+
+Choropleth.prototype.updateVis = function(){
+    var vis = this;
+
+    vis.tip.attr("class","d3-tip");
+
+    vis.g.append("g")
+        .attr("id", "states")
+        .selectAll("path")
+        .data(topojson.feature(vis.data.usStatesData, vis.data.usStatesData.objects.states).features)
+        .enter()
+        .append("path")
+        .attr("class","state-area")
+        .attr("fill", function(d) {
+            return vis.rateById.get(d.id);
+        })
+        .attr("d", vis.path)
+        .attr("stroke","black")
+        .attr("stroke-width","2px")
+        .attr("stroke-opacity",0.2)
+        .on('mouseover', function(d){
+            var p = d.properties;
+            return vis.tip.show( '<span>' + p.state + '</span><p>' + "Median Household Income: <br>" + d3.format(",g")(p.cuts[50]))
+        })
+        .on('mouseout', function(d){
+            vis.tip.hide()
+        })
+        .on('click', function(d){
+            console.log(d);
+            var p = d.properties;
+            vis.chosenState = p.state_abv
+            vis.chosenIncome = Number(document.getElementById('input-with-keypress').value);
+            vis.chosenStateID = p.id;
+            setPerInfo(p, vis.chosenState, vis.chosenIncome);
+        });
+
+    vis.g.append("path")
+        .datum(topojson.mesh(vis.data.usStatesData, vis.data.usStatesData.objects.states, function(a, b) { return a !== b; }))
+        .attr("id", "state-borders")
+        .attr("d", vis.path);
+
+    vis.keypressSlider.noUiSlider.on('update', function( values, handle ) {
+    	vis.input.value = values[handle];
+    	var stateData = vis.data.ratesData.filter(function(v){ return +v.id == vis.chosenStateID; })[0];
+    	var stateChosen
+    	setPerInfo(stateData, vis.chosenState, vis.chosenIncome);
+    });
+
+    vis.input.addEventListener('change', function(){
+    	if ( this.value < 1000 ) {
+            vis.keypressSlider.noUiSlider.set([null, 1000]);
+        } else if ( this.value > 400000 ) {
+            vis.keypressSlider.noUiSlider.set([null, 400000]);
+        }else{
+            vis.keypressSlider.noUiSlider.set([null, this.value]);
+        }
+    });
+
+    // Listen to keydown events on the input field.
+    vis.input.addEventListener('keydown', function( e ) {
+    	// Convert the string to a number.
+    	vis.value = Number( vis.keypressSlider.noUiSlider.get() )
+    	vis.sliderStep = vis.keypressSlider.noUiSlider.steps()
+
+    	// Select the stepping for the first handle.
+    	vis.sliderStep = vis.sliderStep[0];
+
+    	switch ( e.which ) {
+    		case 13:
+    			vis.keypressSlider.noUiSlider.set(this.value);
+    			break;
+    		case 38:
+    			vis.keypressSlider.noUiSlider.set( value + sliderStep[1] );
+    			break;
+    		case 40:
+    			vis.keypressSlider.noUiSlider.set( value - sliderStep[0] );
+    			break;
+    	}
+    });
+
+
+}
+
+function getPercentage(data, income){
+    var blah = data.cuts.push(income)
+    blah = data.cuts.sort(function(a, b){return a-b})
+    return blah
+}
+
+
+function arraySearch(arr,val) {
+    for (var i=0; i<arr.length; i++)
+        if (arr[i] === val)
+            return i;
+    return false;
+}
+
+
+function setPerInfo(data, state, income){
+    var p = data;
+    var incomePercent = arraySearch(getPercentage(data, income), income);
+    $("#income-line-chart").html(p.state);
+    $("#per-user").html("<span><strong>TOP " + (100 - arraySearch(getPercentage(p), income))  + "%</strong></span>");
+    $("#per-99").html("<span><strong>$"+d3.format(",g")(p.cuts[99])+"<strong></span>");
+    $("#per-95").html("<span><strong>$"+d3.format(",g")(p.cuts[95])+"<strong></span>");
+    $("#per-75").html("<span><strong>$"+d3.format(",g")(p.cuts[75])+"<strong></span>");
+    $("#per-50").html("<span><strong>$"+d3.format(",g")(p.cuts[50])+"<strong></span>");
+    $("#per-25").html("<span><strong>$"+d3.format(",g")(p.cuts[25])+"<strong></span>");
+    $("#per-10").html("<span><strong>$"+d3.format(",g")(p.cuts[10])+"<strong></span>");
+    $("#per-user").html("<span><strong>TOP " + (100 - incomePercent )  + "%</strong></span>");
+}
+
+
 
 
 //var legend = g.append("g")
@@ -150,17 +268,3 @@ g.append("path")
 //    .attr("dy", ".35em")
 //    .style("text-anchor", "end")
 //    .text(function(d) { return d; });
-
-
-function getPercentage(data){
-    var blah = data.cuts.push(100000)
-    blah = data.cuts.sort(function(a, b){return a-b})
-    return blah
-}
-
-function arraySearch(arr,val) {
-    for (var i=0; i<arr.length; i++)
-        if (arr[i] === val)
-            return i;
-    return false;
-}
