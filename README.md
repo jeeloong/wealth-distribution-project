@@ -37,7 +37,14 @@ What has been Coded:
 Libraries used:
 * Bootstrap
 * d3.js
+* queue.js
 * tooltip
+* jQuery.js
+* dc.js
+* crossfilter.js
+* nouislider.js
+* topojson.js
+* colorbrewer.js
 
 ## Project Website URL and Screencast video
 
