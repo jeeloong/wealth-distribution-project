@@ -1,0 +1,311 @@
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 15px;
+}
+
+h1 {
+    font-weight: 100;
+    margin-top: 50px;
+}
+
+h2 {
+    font-weight: 300;
+    font-size: 18px;
+    margin-bottom: 40px;
+}
+
+.container-fluid {
+	padding-right: 30px;
+	padding-left: 30px;
+}
+
+.background {
+  fill: none;
+  pointer-events: all;
+}
+
+#states {
+fill: #aaa;
+}
+
+#states .active {
+fill: orange;
+}
+
+#state-borders {
+fill: none;
+stroke: #fff;
+stroke-width: 1.5px;
+stroke-linejoin: round;
+stroke-linecap: round;
+pointer-events: none;
+}
+
+.legendTitle{
+font-weight: bold;
+
+}
+
+span{
+/*color: pink;*/
+font-weight: bold;
+text-transform: uppercase;
+}
+
+.state{
+stroke: none;
+stroke-width: 3px;
+}
+
+/*==========================================================================*/
+/* Multi-series Area Chart
+/*==========================================================================*/
+.tooltip-placeholder {
+    text-anchor: left;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* Row with equal height columns */
+/* http://getbootstrap.com.vn/examples/equal-height-columns/ */
+.info-row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+    text-align: center;
+}
+
+.info_header {
+    text-align: center;
+    font-weight: bold;
+}
+
+.info_label {
+    text-align: center;
+}
+
+.info_data {
+    text-align: center;
+    font-style: italic;
+    color: red;
+}
+
+#info_tip {
+    font-size: 12px;
+    text-align: center;
+    font-style: italic;
+    color: red;
+}
+
+/*==========================================================================*/
+/* BarChart for Median Household Income
+/*==========================================================================*/
+.bar {
+    fill: blue;
+    opacity: 0.5;
+}
+
+.bar:hover {
+    fill: green;
+    opacity: 1.0;
+}
+
+#label-us-income{
+    fill: red;
+}
+
+.tooltip-placeholder-HI {
+    text-anchor: left;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 15px;
+    fill: green;
+}
+
+/*==========================================================================*/
+/* Small Multiples
+/*==========================================================================*/
+#previews {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding-bottom: 45px;
+}
+
+.preview {
+    position: relative;
+    float: left;
+}
+
+.svg-multiples, .svg-detail {
+    padding: 50px;
+}
+
+.hidden {
+    opacity: 0;
+    transition: opacity 500ms ease-in;
+    -webkit-transition: opacity 500ms ease-in;
+    -moz-transition: opacity 500ms ease-in;
+    z-index: 0 !important;
+}
+
+.visible {
+    opacity: 1;
+    transition: opacity 500ms ease-in;
+    -webkit-transition: opacity 500ms ease-in;
+    -moz-transition: opacity 500ms ease-in;
+}
+
+.line {
+    fill: none;
+    stroke-width: 1.5px;
+}
+
+.axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+}
+.axis text {
+    font-size: 11px;
+}
+
+.mouse_preview {
+    pointer-events: all;
+    cursor: pointer;
+    fill: none;
+}
+
+.label {
+    font-size: 10px;
+}
+
+.detail-label {
+    font-size: 20px;
+}
+
+.line_US {
+    stroke: red;
+    stroke-dasharray: 3, 3;
+}
+
+/*==========================================================================*/
+/* Checkboxes for Small Multiples
+/*==========================================================================*/
+th {
+    width: 160px;
+}
+
+tr {
+    height: 30px;
+}
+
+td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+input[type=checkbox] {
+    margin-right:3px;
+}
+
+label {
+    margin-right:5px;
+}
+
+/*==========================================================================*/
+/* Range Slider
+/*==========================================================================*/
+#container_slider {
+    height: 80px;
+    padding: 10px;
+}
+
+#slider {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.info_slider {
+    padding: 2px;
+    background: lightblue;
+    text-align: center;
+    width: 50px;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+}
+
+.bs-callout-info {
+    border-left-color: #1b809e;
+}
+
+.x.axis path {
+    display: none;
+}
+
+.d3-tip {
+  line-height: 1;
+  font-weight: bold;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  border-radius: 2px;
+}
+
+/* Creates a small triangle extender for the tooltip */
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 10px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
+  text-align: center;
+}
+
+/* Style northward tooltips differently */
+.d3-tip.n:after {
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+}
+
+.introtext {
+    margin-top: 10px;
+    color: black;
+    text-shadow: #fff 0 1px 1px;
+    background:transparent;
+    font-family: 'Roboto', sans-serif;
+    font-size: 125%;
+}
+
+.introtext ul {
+    font-size: 125%;
+}
+
+.intro-text-bottom {
+    display: inline;
+}
+
+#income-line-chart.income-line-chart{
+    font-size: 125%;
+}
+.per-user{
+    font-size: 125%;
+}

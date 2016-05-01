@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>The Inequality of Wealth in America</title>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dc.css">
+
+
+    <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700' rel='stylesheet' type='text/css'>
+</head>
+<body>
+
+
+<form NAME="Sun Sep 16 2012 15:04:41 GMT-0700 (US Mountain Standard Time)">
+    <table CELLSPACING=0 STYLE="border: 1px solid #333333; margin: 10px auto; width: 100%;">
+        <tr STYLE="background: #4A3A3B;"> <th COLSPAN=2 STYLE="padding: 4px; text-align: center; vertical-align: middle; font-size: larger; font-weight: bold; color: #FFFFFF;">Income Data</TH> </TR>
+        <tr STYLE="background: #978576;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Input Data</TH> <th STYLE="padding: 4px; text-align: right; vertical-align: middle; font-weight: bold;">Values</TH> </TR>
+        <tr STYLE="background: #FFFFFF;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Select Year of Interest</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle; font-weight: bold;"><select NAME="year"><option VALUE="2014" SELECTED>2014 <option VALUE="2013">2013 <option VALUE="2012">2012 <option VALUE="2011">2011 <option VALUE="2010">2010 </select> </TD> </TR>
+        <tr STYLE="background: #F4F1EC;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Your Personal Total Money Income</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle; font-weight: bold;"><input SIZE=15 NAME="personalIncome0" VALUE="41319.00" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+        <tr STYLE="background: #FFFFFF;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Your Family's Combined Total Money Income</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle; font-weight: bold;"><input SIZE=15 NAME="familyIncome1" VALUE="84687.00" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+        <tr STYLE="background: #F4F1EC;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Your Household's Combined Total Money Income</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle; font-weight: bold;"><input SIZE=15 NAME="householdIncome2" VALUE="72641.00" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+</TABLE>
+    <p STYLE="text-align: center;"><input TYPE=button VALUE="Calculate" ONCLICK="incomePercentileRank(this.form)"><input TYPE=reset></p><table CELLSPACING=0 STYLE="border: 1px solid #333333; margin: 10px auto; width: 100%;"><tr STYLE="background: #3A3B4A;"> <th COLSPAN=2 STYLE="padding: 4px; text-align: center; vertical-align: middle; font-size: larger; font-weight: bold; color: #FFFFFF;">Your Estimated U.S. Income Percentile Ranking</TH> </TR>
+    <tr STYLE="background: #857697;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Calculated Results</TH> <th STYLE="padding: 4px; text-align: right; vertical-align: middle; font-weight: bold;">Values</TH> </TR>
+    <tr STYLE="background: #FFFFFF;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Among All U.S. Individuals with Incomes</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle;"><input SIZE=15 NAME="Individual" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+    <tr STYLE="background: #F1ECF4;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">&nbsp;- Among All U.S. Men with Incomes</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle;"><input SIZE=15 NAME="Men" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+    <tr STYLE="background: #FFFFFF;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">&nbsp;- Among All U.S. Women with Incomes</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle;"><input SIZE=15 NAME="Women" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+    <tr STYLE="background: #F1ECF4;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Among All U.S. Families</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle;"><input SIZE=15 NAME="Families" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+    <tr STYLE="background: #FFFFFF;"> <th STYLE="padding: 4px; text-align: left; vertical-align: middle; font-weight: bold;">Among All U.S. Households</TH> <td STYLE="padding: 4px; text-align: right; vertical-align: middle;"><input SIZE=15 NAME="Households" STYLE="text-align: right; vertical-align: middle;"></TD> </TR>
+</TABLE></FORM>
+
+    <!-- Load JS libraries: jQuery, bootstrap, D3 -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/d3.min.js"></script>
+
+    <!-- Load data, create visualizations -->
+    <script src="js/incomePercentileRank.js"></script>
+</body>
+</html>
