@@ -26,7 +26,7 @@ Small Multiples Chart
 Libraries used:
 Bootstrap
 d3.js
-tooltipe
+tooltip
 
 
 ## Motivation
@@ -37,7 +37,7 @@ Are only the top 10% earners in the economy living “life of luxury”, and the
 
 ## Project Website URL and Screencast video
 
-Website URL:
+Website URL: http://jeeloong.github.io/wealth-distribution-project/
 
 Screencast URL:
 
