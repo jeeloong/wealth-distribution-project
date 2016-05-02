@@ -113,6 +113,10 @@
             <div class="col-md-12">
                 <div class="bs-callout bs-callout-info">
                     Enter your household income and see how you rank in all 50 states across the country.
+                    <br/><br/>
+                    *Source: New York Times analysis of University of Minnesota Population Center data
+                    <br/>
+                    *Source: EPI: <a href="http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/">http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/</a>
                 </div>
             </div>
         </div>
@@ -121,12 +125,12 @@
         <div class="row col-md-12" style="margin-bottom:35px;">
             <div class="well" style="margin-bottom:20px; margin-right:-25px; height:130px;">
                 <div class="col-md-12">
-                    <div class="col-md-2"><strong>Income By Input:</strong> </div>
-                    <input type="text" id="input-with-keypress" style="margin-bottom:5px;" class="col-md-10">
+                    <div class="col-md-3"><strong>Enter a household income: </strong> </div>
+                    <input type="text" id="input-with-keypress" style="margin-bottom:5px;" class="col-md-9">
                 </div>
                 <div class="col-md-12">
-                    <div class="col-md-2"><strong>Income By Slider:</strong> </div>
-                    <div id="keypress" class="col-md-10"></div>
+                    <div class="col-md-3">&nbsp;</div>
+                    <div id="keypress" class="col-md-9"></div>
                 </div>
             </div>
         </div>
@@ -293,9 +297,9 @@
             </div>
         </div>
         <div class="row">
-            <table id="tbl-sm" style="width:100%">
-                <tr style="background-color:light-purple">
-                    <th>Region</th>
+            <table id="tbl-sm" style="width:100%" class="table table-borderless" >
+                <tr class="danger">
+                    <th style="font-size:24px;">Region</th>
                     <th><input type="checkbox" id="checkBox_Pacific" value="Pacific" onchange="checkmultipleSM(this)" checked="true"><label for="checkBox_Pacific">Pacific</label></th>
                     <th><input type="checkbox" id="checkBox_Mountain" value="Mountain" onchange="checkmultipleSM(this)" checked="true"><label for="checkBox_Mountain">Mountain</label></th>
                     <th><input type="checkbox" id="checkBox_West_North_Central" value="West_North_Central" onchange="checkmultipleSM(this)" checked="true"><label for="checkBox_West_North_Central">West North Central</label></th>
@@ -306,8 +310,8 @@
                     <th><input type="checkbox" id="checkBox_South_Atlantic" value="South_Atlantic" onchange="checkmultipleSM(this)" checked="true"><label for="checkBox_South_Atlantic">South Atlantic</label></th>
                     <th><input type="checkbox" id="checkBox_New_England" value="New_England" onchange="checkmultipleSM(this)" checked="true"><label for="checkBox_New_England">New England</label></th>
                 </tr>
-                <tr>
-                    <th>States</th>
+                <tr class="active">
+                    <th style="font-size:24px;">States</th>
                     <td><input type="checkbox" id="checkBox_AK" value="AK" onchange="checkSM(this)" checked="true" class="Pacific"><label for="checkBox_AK">Alaska</label></td>
                     <td><input type="checkbox" id="checkBox_AZ" value="AZ" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_AZ">Arizona</label></td>
                     <td><input type="checkbox" id="checkBox_IA" value="IA" onchange="checkSM(this)" checked="true" class="West_North_Central"><label for="checkBox_IA">Iowa</label></td>
@@ -318,7 +322,7 @@
                     <td><input type="checkbox" id="checkBox_DE" value="DE" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_DE">Delaware</label></td>
                     <td><input type="checkbox" id="checkBox_CT" value="CT" onchange="checkSM(this)" checked="true" class="New_England"><label for="checkBox_CT">Connecticut</label></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_CA" value="CA" onchange="checkSM(this)" checked="true" class="Pacific"><label for="checkBox_CA">California</label></td>
                     <td><input type="checkbox" id="checkBox_CO" value="CO" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_CO">Colorado</label></td>
@@ -330,7 +334,7 @@
                     <td><input type="checkbox" id="checkBox_DC" value="DC" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_DC">District of Columbia</label></td>
                     <td><input type="checkbox" id="checkBox_ME" value="ME" onchange="checkSM(this)" checked="true" class="New_England"><label for="checkBox_ME">Maine</label></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_HI" value="HI" onchange="checkSM(this)" checked="true" class="Pacific"><label for="checkBox_HI">Hawaii</label></td>
                     <td><input type="checkbox" id="checkBox_ID" value="ID" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_ID">Idaho</label></td>
@@ -342,7 +346,7 @@
                     <td><input type="checkbox" id="checkBox_FL" value="FL" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_FL">Florida</label></td>
                     <td><input type="checkbox" id="checkBox_MA" value="MA" onchange="checkSM(this)" checked="true" class="New_England"><label for="checkBox_MA">Massachusetts</label></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_OR" value="OR" onchange="checkSM(this)" checked="true" class="Pacific"><label for="checkBox_OR">Oregon</label></td>
                     <td><input type="checkbox" id="checkBox_MT" value="MT" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_MT">Montana</label></td>
@@ -354,7 +358,7 @@
                     <td><input type="checkbox" id="checkBox_GA" value="GA" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_GA">Georgia</label></td>
                     <td><input type="checkbox" id="checkBox_NH" value="NH" onchange="checkSM(this)" checked="true" class="New_England"><label for="checkBox_NH">New Hampshire</label></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_WA" value="WA" onchange="checkSM(this)" checked="true" class="Pacific"><label for="checkBox_WA">Washington</label></td>
                     <td><input type="checkbox" id="checkBox_NV" value="NV" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_NV">Nevada</label></td>
@@ -366,7 +370,7 @@
                     <td><input type="checkbox" id="checkBox_MD" value="MD" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_MD">Maryland</label></td>
                     <td><input type="checkbox" id="checkBox_RI" value="RI" onchange="checkSM(this)" checked="true" class="New_England"><label for="checkBox_RI">Rhode Island</label></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_NM" value="NM" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_NM">New Mexico</label></td>
@@ -378,7 +382,7 @@
                     <td><input type="checkbox" id="checkBox_NC" value="NC" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_NC">North Carolina</label></td>
                     <td><input type="checkbox" id="checkBox_VT" value="VT" onchange="checkSM(this)" checked="true" class="New_England"><label for="checkBox_VT">Vermont</label></td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_UT" value="UT" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_UT">Utah</label></td>
@@ -390,7 +394,7 @@
                     <td><input type="checkbox" id="checkBox_SC" value="SC" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_SC">South Carolina</label></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td><input type="checkbox" id="checkBox_WY" value="WY" onchange="checkSM(this)" checked="true" class="Mountain"><label for="checkBox_WY">Wyoming</label></td>
@@ -402,7 +406,7 @@
                     <td><input type="checkbox" id="checkBox_VA" value="VA" onchange="checkSM(this)" checked="true" class="South_Atlantic"><label for="checkBox_VA">Virginia</label></td>
                     <td>&nbsp;</td>
                 </tr>
-                <tr>
+                <tr class="active">
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>

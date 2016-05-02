@@ -432,3 +432,7 @@ label {
     margin-top: 2px;
     margin-left: 0
 }
+
+.table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {
+    border: none;
+}

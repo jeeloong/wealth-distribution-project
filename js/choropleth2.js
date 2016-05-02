@@ -146,7 +146,6 @@ Choropleth.prototype.initVis = function(){
         }
     });
 
-    //http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/
     this.wrangleData();
 }
 
