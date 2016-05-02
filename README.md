@@ -45,6 +45,7 @@ Libraries used:
 * nouislider.js
 * topojson.js
 * colorbrewer.js
+* underscore.js
 
 ## Project Website URL and Screencast video
 
@@ -54,6 +55,6 @@ Screencast URL:
 
 ## Contributors
 
-Jee Loong Chew - jee.loong@gmail.com
-Kirill B - kirill00k@gmail.com
-Stirling Waite - stirlingw@gmail.com
+* Jee Loong Chew - jee.loong@gmail.com
+* Kirill B - kirill00k@gmail.com
+* Stirling Waite - stirlingw@gmail.com
