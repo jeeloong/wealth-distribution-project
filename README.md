@@ -51,7 +51,7 @@ Libraries used:
 
 Website URL: http://jeeloong.github.io/wealth-distribution-project/
 
-Screencast URL:
+Screencast URL: https://youtu.be/aB8v8uG-8q0
 
 ## Contributors
 
