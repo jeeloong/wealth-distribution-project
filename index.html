@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="css/nouislider.min.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
+    
     <!-- Start Top Nav -->
     <nav class="navbar navbar-default navbar-primary navbar-fixed-top" role="navigation">
         <div class="container-fluid">
@@ -25,7 +25,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Jump to explore:</a>
+                <a class="navbar-brand" href="#" style="color: hotpink;">Inequality of Wealth in America</a>
             </div>
             <div>
                 <div class="collapse navbar-collapse" id="myNavbar">
@@ -35,14 +35,12 @@
                         <li><a href="#section31">Bar chart</a></li>
                         <li><a href="#section41">Multiples Chart</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a data-toggle="modal" href="#myModal">About</a></li>
-                    </ul>
                 </div>
             </div>
         </div>
     </nav>
     <!-- // End Top Nav -->
+    <div class="col-sm-12 col-md-10"> <!-- Start Main -->
     <div class="bg"></div>
     <div class="jumbotron" style="text-align: center;">
         <h1>Inequality Of Wealth In America</h1>
@@ -88,31 +86,32 @@
 
         </p>
     </div>
-
-
-
+    <hr/>
     <div id="section11" class="container-fluid">
 
         <h1>Top 1 Percent In Each State</h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="bs-callout bs-callout-info">Let’s start by looking in which states the top 1% lives ?
-                    The map below shows the where the one percenters live.  Use the line graph on the right to brush and filter for what year you want.
+                    The map below shows the where the one percent live.  Use the line graph on the right to brush and filter for what year you want.
                 </div>
             </div>
         </div>
     </div>
     <div id="section12" class="container-fluid">
-        <div class="row well" style="margin-bottom:10px; height:130px;">
-            <div class="col-md-12" >
-                <!-- Visualization placeholders -->
-                <input type="text" id="input-with-keypress" style="margin-bottom:5px;">
-            </div>
-            <div class="col-md-12" >
-                <div id="keypress"></div>
+        <div class="row col-md-12" style="margin-bottom:30px;">
+            <div class="well" style="margin-bottom:20px; margin-left:15px; margin-right:15px; height:130px;">
+                <div class="col-md-12">
+                    <div class="col-md-2"><strong>Income By Input:</strong> </div>
+                    <input type="text" id="input-with-keypress" style="margin-bottom:5px;" class="col-md-10">
+                </div>
+                <div class="col-md-12">
+                    <div class="col-md-2"><strong>Income By Slider:</strong> </div>
+                    <div id="keypress" class="col-md-10"></div>
+                </div>
             </div>
         </div>
-        <div class="row" style="margin-top:100px;">
+        <div class="row" style="margin-top:30px;">
             <div class="col-md-8">
                 <!-- Visualization placeholders -->
                 <div class=".d3-tip"></div>
@@ -120,25 +119,31 @@
                 <div class="clearfix"></div>
             </div>
             <div class="col-md-4">
-                <div id="income-line-chart" class="income-line-chart col-md-12"></div>
-                <div class="clearfix"></div>
-                <div id="income-line-chart-desc" class="col-md-10">
-                    <p>A household income of $100,000 places you in the</p>
-                    <div id="per-user" class="per-user"></div>
-                    <p>of people who live there.</p>
+                <div>
+                    <span id="income-line-chart" class="income-line-chart"></span>
                 </div>
                 <div class="clearfix"></div>
-                <table>
-                    <tr><td class="col-md-2">Top 1%</td><td class="col-md-2" id="per-99"></td></tr>
-                    <tr><td class="col-md-2">Top 5%</td><td class="col-md-2" id="per-95"></td></tr>
-                    <tr><td class="col-md-2">Top 25%</td><td class="col-md-2" id="per-75"></td></tr>
-                    <tr><td class="col-md-2">Top Half</td><td class="col-md-2" id="per-50"></td></tr>
-                    <tr><td class="col-md-2">Bottom 25%</td><td class="col-md-2" id="per-25"></td></tr>
-                    <tr><td class="col-md-2">Bottom 10%</td><td class="col-md-2" id="per-10"></td></tr>
-                </table>
+                <div id="income-line-chart-desc" class="col-md-8 well">
+                    <p>A household income of <span id="chosen-income" class="chosen-income"></span> places you in the <br/>
+                    <span id="chosen-income-percent" class="chosen-income-percent"></span><br/>
+                    of people who live there.</p>
+                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-9 table-special">
+                    <p>INCOME REQUIRED TO BE IN THE:</p>
+                    <table class="table">
+                        <tr><td class="col-md-5"><strong>Top 1%</strong></td><td class="col-md-1" id="per-99"></td></tr>
+                        <tr><td class="col-md-5"><strong>Top 5%</strong></td><td class="col-md-1" id="per-95"></td></tr>
+                        <tr><td class="col-md-5"><strong>Top 25%</strong></td><td class="col-md-1" id="per-75"></td></tr>
+                        <tr><td class="col-md-5"><strong>Top Half</strong></td><td class="col-md-1" id="per-50"></td></tr>
+                        <tr><td class="col-md-5"><strong>Bottom 25%</strong></td><td class="col-md-1" id="per-25"></td></tr>
+                        <tr><td class="col-md-5"><strong>Bottom 10%</strong></td><td class="col-md-1" id="per-10"></td></tr>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+    <hr/>
     <div id="section21" class="container-fluid">
         <h1>Average Wealth Distribution Area Chart</h1>
         <div class="row">
@@ -210,6 +215,7 @@
             </div>
         </div>
     </div>
+    <hr/>
     <div id="section31" class="container-fluid">
         <h1>Average Wealth Distribution Stacked Bar Chart</h1>
         <div class="row">
@@ -231,6 +237,7 @@
             </div>
         </div>
     </div>
+    <hr/>
     <div id="section41" class="container-fluid">
         <h1>Average Wealth Distribution Small Multiples Chart</h1>
         <div class="row">
@@ -403,8 +410,34 @@
             </div>
         </div>
     </div>
-
-
+    </div> <!-- .main-->
+    <div class="col-md-2 hidden-xs hidden-sm" id="contents-nav-container"> <!-- .Side Bar-->
+        <nav role="complementary" class="statio-sidebar hidden-print animate-top affix-top" id="contents-nav">
+            <div>
+                <h4>UNITED STATES</h4>
+            </div>
+            <div>
+                <span class="glyphicon glyphicon-user"></span> <span>311,536,594</span><br/>
+                <span class="glyphicon glyphicon-home"></span> <span>115,610,216</span>
+            </div>
+            <hr/>
+            <div>
+                <h4>NAVIGATION</h4>
+                <ul class="nav nav-stacked">
+                    <li><a href="#section11">Map Chart</a></li>
+                    <li><a href="#section21">Area Chart</a></li>
+                    <li><a href="#section31">Bar chart</a></li>
+                    <li><a href="#section41">Multiples Chart</a></li>
+                </ul>
+            </div>
+            <br/>
+            <div>
+                <ul class="nav nav-stacked">
+                    <li><a data-toggle="modal" href="#myModal">About</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div> <!-- .Side Bar-->
     <!-- Modal Box-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -437,6 +470,7 @@
     <script src="js/nouislider.min.js"></script>
     <script src="js/topojson.v1.min.js"></script>
     <script src="js/colorbrewer.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
 
     <!-- Load Global Variables -->
     <script src="js/us_states.js"></script>

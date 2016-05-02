@@ -254,7 +254,7 @@ label {
 }
 
 .bs-callout-info {
-    border-left-color: #1b809e;
+    border-left-color: #ff69b4;
 }
 
 .x.axis path {
@@ -307,9 +307,126 @@ label {
     display: inline;
 }
 
+#income-line-chart-desc{
+    text-align: center;
+}
+.chosen-income{
+    font-size: 115%;
+}
+
 #income-line-chart.income-line-chart{
     font-size: 125%;
 }
-.per-user{
-    font-size: 125%;
+#chosen-income-percent.chosen-income-percent{
+    font-size: 280%;
+}
+
+.table-special{
+    margin-left: -15px;
+    padding-right: 32px;
+}
+
+#contents-nav-container {
+    padding-right: 0
+}
+.sidebar-info-table {
+    margin-bottom: 8px
+}
+.sidebar-info-table table {
+    margin-top: 10px;
+    margin-left: 12px
+}
+.sidebar-info-table th {
+    font-weight: normal;
+    padding-right: 6px;
+    text-align: right
+}
+.sidebar-info-table td {
+    font-weight: bold;
+    text-align: right
+}
+.navbar {
+    -webkit-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    border: none
+}
+.hide-navbar .navbar {
+    display: none
+}
+.affix-icon {
+    float: left
+}
+.affix-label {
+    margin-left: 20px
+}
+.statio-sidebar {
+    margin-bottom: 20px
+}
+.statio-sidebar h4 {
+    margin-top: 0
+}
+.statio-sidebar.affix,
+.statio-sidebar.affix-top {
+    position: fixed;
+    top: 70px
+}
+.hide-navbar .statio-sidebar.affix,
+.hide-navbar .statio-sidebar.affix-top {
+    top: 20px
+}
+.statio-sidebar.affix-bottom {
+    position: absolute
+}
+.statio-sidebar .nav>li>a {
+    border-left: 2px solid transparent;
+    padding: 1px 10px;
+    color: #337ab7;
+    font-weight: 700;
+    font-size: 13px
+}
+.statio-sidebar .nav>.active>a,
+.statio-sidebar .nav>li>a:hover,
+.statio-sidebar .nav>li>a:focus {
+    color: #23527c;
+    text-decoration: none;
+    background-color: transparent;
+    border-left-color: #ff69b4;
+}
+.statio-sidebar .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 20px;
+    font-size: 13px;
+    font-weight: 400
+}
+.statio-sidebar .nav .nav>.active>a,
+.statio-sidebar .nav .nav>.active:hover>a,
+.statio-sidebar .nav .nav>.active:focus>a {
+    font-weight: 500
+}
+.statio-sidebar .nav .nav .nav>li>a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px
+}
+.statio-sidebar .nav .nav .nav>.active>a,
+.statio-sidebar .nav .nav .nav>.active:hover>a,
+.statio-sidebar .nav .nav .nav>.active:focus>a {
+    font-weight: 500
+}
+.statio-sidebar .nav ul.nav {
+    display: none
+}
+.statio-sidebar .nav>.active>ul.nav {
+    display: block
+}
+
+.nav-stacked>li {
+    float: none
+}
+.nav-stacked>li+li {
+    margin-top: 2px;
+    margin-left: 0
 }

@@ -20,18 +20,18 @@ Choropleth = function(_parentElement, _data){
 Choropleth.prototype.initVis = function(){
     var vis = this;
 
-    vis.numberFormat = d3.format(".2f");
-    vis.rateById = d3.map();
-    // var color = d3.scale.ordinal().domain([1,2,3,4,5]).range(["#009ed8","#80e28e","#e9ec32","#f6a023","#f37124"])
-    vis.color = d3.scale.ordinal().domain([0,1,2,3,4,5,6,7,8,9]).range(["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac"]);
-
-    vis.chosenState = "US";
-    vis.chosenIncome = 100000;
-    vis.chosenStateID = 0;
-
+    vis.numberFormat    = d3.format(".2f");
+    vis.rateById        = d3.map();
+    vis.color           = d3.scale.ordinal()
+                            .domain([0,1,2,3,4,5,6,7,8,9])
+                            .range(["#3366cc", "#dc3912", "#ff9900", "#109618", "#990099", "#0099c6", "#dd4477", "#66aa00", "#b82e2e", "#316395", "#994499", "#22aa99", "#aaaa11", "#6633cc", "#e67300", "#8b0707", "#651067", "#329262", "#5574a6", "#3b3eac"]);
+    vis.chosenState     = "US";
+    vis.chosenIncome    = 100000;
+    vis.chosenStateID   = 0;
 
     vis.data.ratesData.forEach(function(d) {
         var foo = 0;
+        // This is for the colors in the choropleth map to them working correctly
         if(d.cuts !== "undefined"){
             if(d.cuts[50] >= 30000 && d.cuts[50] < 35000){
                 foo = 1;
@@ -56,14 +56,50 @@ Choropleth.prototype.initVis = function(){
         vis.rateById.set(d.id, vis.color(+foo));
     });
 
+    // Gets the percentage of income the user is in
+    // This is a bit hacky but it gets the job done
+    vis.getPercentage = function(){
+        var data = [];
+        data = vis.data.ratesData.filter(function(v){ return +v.id == vis.chosenStateID; })[0];
+        var sortArray = data.cuts.push(Number(vis.chosenIncome));
+        sortArray = data.cuts.sort(function(a, b){return a-b})
+        var indexOfIncome = data.cuts.indexOf(Number(vis.chosenIncome));
+        delete data.cuts[indexOfIncome];
+        return indexOfIncome;
+    }
+
+    vis.updateIncomes = function(){
+        var data = vis.data.ratesData.filter(function(v){ return +v.id == vis.chosenStateID; })[0];
+        var p                                                       = data;
+        var incomePercent                                           = vis.getPercentage();
+        document.getElementById('income-line-chart').innerHTML      = p.state;
+        document.getElementById('chosen-income').innerHTML          = "$" + d3.format(",g")(vis.chosenIncome);
+        if(incomePercent < 50){
+            document.getElementById('chosen-income-percent').innerHTML  = "Bottom " + (100 - incomePercent)  + "%";
+        }else if(incomePercent == 50){
+            document.getElementById('chosen-income-percent').innerHTML  = "Top Half " + (100 - incomePercent);
+        }else if(incomePercent >= 100){
+            document.getElementById('chosen-income-percent').innerHTML  = "Top 1%";
+        }else{
+            document.getElementById('chosen-income-percent').innerHTML  = "Top " + (100 - incomePercent) + "%";
+        }
+    }
+
+    vis.updatePercentages = function(){
+        var p = vis.data.ratesData.filter(function(v){ return +v.id == vis.chosenStateID; })[0];
+        document.getElementById('per-99').innerHTML             = "$" + d3.format(",g")(p.cuts[99]);
+        document.getElementById('per-95').innerHTML             = "$" + d3.format(",g")(p.cuts[95]);
+        document.getElementById('per-75').innerHTML             = "$" + d3.format(",g")(p.cuts[75]);
+        document.getElementById('per-50').innerHTML             = "$" + d3.format(",g")(p.cuts[50]);
+        document.getElementById('per-25').innerHTML             = "$" + d3.format(",g")(p.cuts[25]);
+        document.getElementById('per-10').innerHTML             = "$" + d3.format(",g")(p.cuts[10]);
+    }
 
     vis.data.usStatesData.objects.states.geometries.forEach(function(d){
         d.properties = vis.data.ratesData.filter(function(v){ return +v.id == +d.id; })[0];
     });
 
-    vis.usData =  vis.data.ratesData.filter(function(v){ return +v.id == 0; })[0];
-
-    setPerInfo(vis.usData, "US", vis.chosenIncome);
+    vis.updatePercentages();
 
     vis.width = 900;
     vis.height = 450;
@@ -81,7 +117,8 @@ Choropleth.prototype.initVis = function(){
         .attr("height", vis.height + vis.margin.top + vis.margin.bottom)
         .on("click", function(d){
             vis.chosenState = "US";
-            setPerInfo(vis.usData, "US", vis.chosenIncome);
+            vis.updateIncomes();
+            vis.updatePercentages();
         });
 
     vis.g = vis.svg.append("g").attr("transform", "translate(" + vis.margin.left + "," + vis.margin.top + ")");
@@ -149,12 +186,11 @@ Choropleth.prototype.updateVis = function(){
             vis.tip.hide()
         })
         .on('click', function(d){
-            console.log(d);
             var p = d.properties;
             vis.chosenState = p.state_abv
-            vis.chosenIncome = Number(document.getElementById('input-with-keypress').value);
             vis.chosenStateID = p.id;
-            setPerInfo(p, vis.chosenState, vis.chosenIncome);
+            vis.updateIncomes();
+            vis.updatePercentages();
         });
 
     vis.g.append("path")
@@ -164,9 +200,8 @@ Choropleth.prototype.updateVis = function(){
 
     vis.keypressSlider.noUiSlider.on('update', function( values, handle ) {
     	vis.input.value = values[handle];
-    	var stateData = vis.data.ratesData.filter(function(v){ return +v.id == vis.chosenStateID; })[0];
-    	var stateChosen
-    	setPerInfo(stateData, vis.chosenState, vis.chosenIncome);
+    	vis.chosenIncome = vis.input.value;
+    	vis.updateIncomes()
     });
 
     vis.input.addEventListener('change', function(){
@@ -204,11 +239,7 @@ Choropleth.prototype.updateVis = function(){
 
 }
 
-function getPercentage(data, income){
-    var blah = data.cuts.push(income)
-    blah = data.cuts.sort(function(a, b){return a-b})
-    return blah
-}
+
 
 
 function arraySearch(arr,val) {
@@ -219,19 +250,7 @@ function arraySearch(arr,val) {
 }
 
 
-function setPerInfo(data, state, income){
-    var p = data;
-    var incomePercent = arraySearch(getPercentage(data, income), income);
-    $("#income-line-chart").html(p.state);
-    $("#per-user").html("<span><strong>TOP " + (100 - arraySearch(getPercentage(p), income))  + "%</strong></span>");
-    $("#per-99").html("<span><strong>$"+d3.format(",g")(p.cuts[99])+"<strong></span>");
-    $("#per-95").html("<span><strong>$"+d3.format(",g")(p.cuts[95])+"<strong></span>");
-    $("#per-75").html("<span><strong>$"+d3.format(",g")(p.cuts[75])+"<strong></span>");
-    $("#per-50").html("<span><strong>$"+d3.format(",g")(p.cuts[50])+"<strong></span>");
-    $("#per-25").html("<span><strong>$"+d3.format(",g")(p.cuts[25])+"<strong></span>");
-    $("#per-10").html("<span><strong>$"+d3.format(",g")(p.cuts[10])+"<strong></span>");
-    $("#per-user").html("<span><strong>TOP " + (100 - incomePercent )  + "%</strong></span>");
-}
+
 
 
 
