@@ -14,7 +14,7 @@
 
     <link rel="stylesheet" href="css/nouislider.min.css">
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<body data-spy="scroll" data-target=".navbar" data-offset="80">
     
     <!-- Start Top Nav -->
     <nav class="navbar navbar-default navbar-primary navbar-fixed-top" role="navigation">
@@ -30,17 +30,20 @@
             <div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav">
+                        <li><a href="#section0">Introduction</a></li>
                         <li><a href="#section11">Map Chart</a></li>
                         <li><a href="#section21">Area Chart</a></li>
                         <li><a href="#section31">Bar chart</a></li>
                         <li><a href="#section41">Multiples Chart</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a data-toggle="modal" href="#myModal">About</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </nav>
     <!-- // End Top Nav -->
-    <div class="col-sm-12 col-md-10"> <!-- Start Main -->
     <div class="bg"></div>
     <div class="jumbotron" style="text-align: center;">
         <h1>Inequality Of Wealth In America</h1>
@@ -50,57 +53,73 @@
             Kirill B (kirill00k@gmail.com)
         </p>
     </div>
-    <div class="container-fluid" class="col-md-12">
-        <h4>Abstract:</h4>
-        <p>Our perception of the distribution of wealth in America might not be accurate, especially in terms of inequalities and the actual real numbers.</p>
-        <p>
-        Wealth as we know it, might not be distributed as we thought before. Surprisingly it doesn’t take to be a millionaire to be in the top 25% or even 10% of the wealthiest people in USA. Follow this page where we try to explore and show how wealth is distributed among population in USA.
-        Let’s look at the bottom 90%, top 10%, top 1%, and even top .01% to see how wealth really distributed.
-        </p>
+    <div id="section0" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div style="margin-top:60px;">
+                    <h2><strong>Abstract:</strong></h2>
+                    <p>Our perception of the distribution of wealth in America might not be accurate, especially in terms of inequalities and the actual real numbers.</p>
+                    <p>
+                        Are only the top 10% earners in the economy living the “life of luxury”, and the other 90% getting the scraps?  How much money does it take to “feel rich” in America?
+                        In this web app we look at the bottom 90%, top 10%, top 1%, and the top 400 income per household's in America.
+                    </p>
+                </div>
+                <h2><strong>Motivation:</strong></h2>
+                <p>
 
-        <h4>Questions this study tries to solve:</h4>
-        <ul>
-            <li>Are only the top 10% earners in the economy living the “life of luxury”?</li>
-            <li>How much money does it take to “feel rich” in America?</li>
-            <li>Where is all wealth accumulated?</li>
-        </ul>
+                </p>
+                <h2><strong>Use Case:</strong></h2>
+                <p>
+                    You are a college graduate, with a couple years of experience under your belt.  You are earning a low six figure income.  The money you are earning is more than most of your friends and family, yet you still don’t “feel rich”.   You are curious to see how your income stacks up against the rest of the United States.
+                </p>
+                <p>
+                    After a Google search you find a website with the title “The Inequality of Wealth in America”.  It says that says it can help you find how you rate income wise vs the rest of America.  Also, it provides other general information about household income in America.  You click on the site to see more information.
+                </p>
+                <h2><strong>Questions this study tries to solve:</strong></h2>
+                <ul>
+                    <li>Are only the top 10% earners in the economy living the “life of luxury”?</li>
+                    <li>How much money does it take to “feel rich” in America?</li>
+                    <li>Where is all wealth accumulated?</li>
+                </ul>
 
-        <h4>Quick Info:</h4>
-        <ul>
-            <li>If your income around $98,000 a year, you are in the top 25%</li>
-            <li>If you income around $155,000 at year, you are in the top 10%</li>
-            <li>The Top 1 Percent Of Americans Owns 40 Percent Of The Nation’s Wealth</li>
-            <li>The Top 1 Percent Of Americans Take Home 24 Percent Of National Income</li>
-            <li>The Top 1 Percent Of Americans Own Half Of The Country’s Stocks, Bonds, And Mutual Funds</li>
-        </ul>
-        <p>*source: CNN Money and Business Insider</p>
-        <p>
-            We hope that you will be able to learn something new and answered few questions about wealth distribution in USA.
-            It gets even more interesting if you start searching and will try to compare US to other countries.
-            If we spark your interest, we encourage you to go ahead and explore further.
-            You can start by looking at this
-            <a href="https://en.wikipedia.org/wiki/List_of_countries_by_distribution_of_wealth">list</a>
-            of countries by distribution of wealth
-            </br></br>
-            Happy exploring!
+                <h2><strong>Quick Info:</strong></h2>
+                <ul>
+                    <li>If your income around $98,000 a year, you are in the top 25%</li>
+                    <li>If you income around $155,000 at year, you are in the top 10%</li>
+                    <li>The Top 1 Percent Of Americans Owns 40 Percent Of The Nation’s Wealth</li>
+                    <li>The Top 1 Percent Of Americans Take Home 24 Percent Of National Income</li>
+                    <li>The Top 1 Percent Of Americans Own Half Of The Country’s Stocks, Bonds, And Mutual Funds</li>
+                </ul>
+                <p>*source: CNN Money and Business Insider</p>
+                <h2><strong>Conclusion</strong></h2>
+                <p>
+                    We hope that you will be able to learn something new and answered few questions about wealth distribution in USA.
+                    It gets even more interesting if you start searching and will try to compare US to other countries.
+                    If we spark your interest, we encourage you to go ahead and explore further.
+                    You can start by looking at this
+                    <a href="https://en.wikipedia.org/wiki/List_of_countries_by_distribution_of_wealth">list</a>
+                    of countries by distribution of wealth
+                    </br></br>
+                    Happy exploring!
 
-        </p>
+                </p>
+            </div>
+        </div>
     </div>
     <hr/>
     <div id="section11" class="container-fluid">
-
-        <h1>Top 1 Percent In Each State</h1>
+        <h1>What Percent Are You?</h1>
         <div class="row">
             <div class="col-md-12">
-                <div class="bs-callout bs-callout-info">Let’s start by looking in which states the top 1% lives ?
-                    The map below shows the where the one percent live.  Use the line graph on the right to brush and filter for what year you want.
+                <div class="bs-callout bs-callout-info">
+                    Enter your household income and see how you rank in all 50 states across the country.
                 </div>
             </div>
         </div>
     </div>
     <div id="section12" class="container-fluid">
-        <div class="row col-md-12" style="margin-bottom:30px;">
-            <div class="well" style="margin-bottom:20px; margin-left:15px; margin-right:15px; height:130px;">
+        <div class="row col-md-12" style="margin-bottom:35px;">
+            <div class="well" style="margin-bottom:20px; margin-right:-25px; height:130px;">
                 <div class="col-md-12">
                     <div class="col-md-2"><strong>Income By Input:</strong> </div>
                     <input type="text" id="input-with-keypress" style="margin-bottom:5px;" class="col-md-10">
@@ -113,7 +132,6 @@
         </div>
         <div class="row" style="margin-top:30px;">
             <div class="col-md-8">
-                <!-- Visualization placeholders -->
                 <div class=".d3-tip"></div>
                 <div id="choropleth"></div>
                 <div class="clearfix"></div>
@@ -410,34 +428,6 @@
             </div>
         </div>
     </div>
-    </div> <!-- .main-->
-    <div class="col-md-2 hidden-xs hidden-sm" id="contents-nav-container"> <!-- .Side Bar-->
-        <nav role="complementary" class="statio-sidebar hidden-print animate-top affix-top" id="contents-nav">
-            <div>
-                <h4>UNITED STATES</h4>
-            </div>
-            <div>
-                <span class="glyphicon glyphicon-user"></span> <span>311,536,594</span><br/>
-                <span class="glyphicon glyphicon-home"></span> <span>115,610,216</span>
-            </div>
-            <hr/>
-            <div>
-                <h4>NAVIGATION</h4>
-                <ul class="nav nav-stacked">
-                    <li><a href="#section11">Map Chart</a></li>
-                    <li><a href="#section21">Area Chart</a></li>
-                    <li><a href="#section31">Bar chart</a></li>
-                    <li><a href="#section41">Multiples Chart</a></li>
-                </ul>
-            </div>
-            <br/>
-            <div>
-                <ul class="nav nav-stacked">
-                    <li><a data-toggle="modal" href="#myModal">About</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div> <!-- .Side Bar-->
     <!-- Modal Box-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
