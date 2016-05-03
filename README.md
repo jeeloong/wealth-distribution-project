@@ -20,7 +20,7 @@ You are a college graduate, with a couple years of experience under your belt. Y
 
 ## Code Description
 
-What is included:
+### What is included:
 * CSS - styling of the page and charts
 * Data - datasets used for the charts
 * fonts - used to style the page
@@ -28,33 +28,57 @@ What is included:
 * js - all javascript files responsible for the charts
 * index.html - home page
 
-What has been Coded:
+### Charts Included:
 * Choropleth map
-* Stacked Area Chart
-* Stacked Bar Chart
-* Small Multiples Chart
+* Stacked area chart
+* Radial chart
+* Stacked bar chart
+* Small multiples chart
 
-Libraries used:
+### Libraries used:
 * Bootstrap
 * d3.js
-* queue.js
-* tooltip
-* jQuery.js
-* dc.js
-* crossfilter.js
-* nouislider.js
-* topojson.js
-* colorbrewer.js
-* underscore.js
+* d3.tip.js
+* Colorbrewer
+* Crossfilter.js
+* DC.js
+* Jquery
+* Jquery UI
+* Nouislider
+* Queue.js
+* TopoJSON
 
-## Project Website URL and Screencast video
+## Project Website URL, Github URL, and Screencast Video URL
 
-Website URL: http://jeeloong.github.io/wealth-distribution-project/
-
-Screencast URL: https://youtu.be/aB8v8uG-8q0
+* Screencast URL: [https://youtu.be/aB8v8uG-8q0](https://youtu.be/aB8v8uG-8q0)
+* Website URL: [http://jeeloong.github.io/wealth-distribution-project/](http://jeeloong.github.io/wealth-distribution-project/)
+* Github Project URL: [https://github.com/stirlingw/wealth-distribution-project](https://github.com/stirlingw/wealth-distribution-project)
 
 ## Contributors
 
 * Jee Loong Chew - jee.loong@gmail.com
 * Kirill B - kirill00k@gmail.com
 * Stirling Waite - stirlingw@gmail.com
+
+## Code Contribution 
+* Stirling Waite
+    * What Percent Are You? visualization
+    * main.js
+    * CSS for entire site
+    * UI/UX interaction
+    * Section descriptions
+    * Choropleth map
+    * Documentation
+    * Github hosting
+* Jee Loong Chew
+    * Average Wealth Distribution Part 1 visualization
+    * Average Wealth Distribution Part 3 visualization
+    * Small multiples charts
+    * Area and radial charts
+    * Screencast 
+    * Documentation
+    * Github.io demo
+* Kirill B 
+    * Average Wealth Distribution Part 2 visualization
+    * Documentation
+    * ReadMe

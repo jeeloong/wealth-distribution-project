@@ -146,21 +146,11 @@ Choropleth.prototype.initVis = function(){
         }
     });
 
-    this.wrangleData();
-}
-
-Choropleth.prototype.wrangleData = function(){
-    var vis = this;
-
-
-
     this.updateVis();
 }
 
-
 Choropleth.prototype.updateVis = function(){
     var vis = this;
-
     vis.tip.attr("class","d3-tip");
 
     vis.g.append("g")
@@ -237,52 +227,3 @@ Choropleth.prototype.updateVis = function(){
 
 
 }
-
-
-
-
-function arraySearch(arr,val) {
-    for (var i=0; i<arr.length; i++)
-        if (arr[i] === val)
-            return i;
-    return false;
-}
-
-
-
-
-
-
-
-//var legend = g.append("g")
-//.attr("transform","translate(" + [width, height] + ")")
-//
-//legend.append("text")
-//.attr("class","legendTitle")
-//.text("Median Household Income By State")
-//.attr("y", -230)
-//.attr("x",-1)
-//.style("text-anchor","end")
-//
-//
-//
-//var lSquares = legend.selectAll(".legend")
-//    .data(['$30,000-$35,000','$35,000-$40,000','$40,000-$45,000','$45,000-$50,000','$50,000-$55,000','$55,000-$60,000','$60,000-$65,000','$65,000-$70,000','$70,000-$75,000'].reverse())
-//    .enter()
-//    .append("g")
-//    .attr("class", "legend")
-//    .attr("transform", function(d, i) {  return "translate(0," + (- 40 - i * 23) + ")"; });
-//
-//lSquares.append("rect")
-//    .attr("x",  "-18px")
-//    .attr("width", 18)
-//    .attr("height", 18)
-//    .attr("stroke", "#444")
-//    .style("fill", function(d,i){ console.log(i); return color(5-i);});
-//
-//lSquares.append("text")
-//    .attr("x", "-24px")
-//    .attr("y", 9)
-//    .attr("dy", ".35em")
-//    .style("text-anchor", "end")
-//    .text(function(d) { return d; });

@@ -326,8 +326,6 @@ label {
     padding-right: 32px;
 }
 
-
-
 #contents-nav-container {
     padding-right: 0
 }
@@ -361,76 +359,6 @@ label {
 }
 .affix-label {
     margin-left: 20px
-}
-.statio-sidebar {
-    margin-bottom: 20px
-}
-.statio-sidebar h4 {
-    margin-top: 0
-}
-.statio-sidebar.affix,
-.statio-sidebar.affix-top {
-    position: fixed;
-    top: 70px
-}
-.hide-navbar .statio-sidebar.affix,
-.hide-navbar .statio-sidebar.affix-top {
-    top: 20px
-}
-.statio-sidebar.affix-bottom {
-    position: absolute
-}
-.statio-sidebar .nav>li>a {
-    border-left: 2px solid transparent;
-    padding: 1px 10px;
-    color: #337ab7;
-    font-weight: 700;
-    font-size: 13px
-}
-.statio-sidebar .nav>.active>a,
-.statio-sidebar .nav>li>a:hover,
-.statio-sidebar .nav>li>a:focus {
-    color: #23527c;
-    text-decoration: none;
-    background-color: transparent;
-    border-left-color: #ff69b4;
-}
-.statio-sidebar .nav .nav>li>a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 20px;
-    font-size: 13px;
-    font-weight: 400
-}
-.statio-sidebar .nav .nav>.active>a,
-.statio-sidebar .nav .nav>.active:hover>a,
-.statio-sidebar .nav .nav>.active:focus>a {
-    font-weight: 500
-}
-.statio-sidebar .nav .nav .nav>li>a {
-    padding-top: 1px;
-    padding-bottom: 1px;
-    padding-left: 30px;
-    font-size: 12px
-}
-.statio-sidebar .nav .nav .nav>.active>a,
-.statio-sidebar .nav .nav .nav>.active:hover>a,
-.statio-sidebar .nav .nav .nav>.active:focus>a {
-    font-weight: 500
-}
-.statio-sidebar .nav ul.nav {
-    display: none
-}
-.statio-sidebar .nav>.active>ul.nav {
-    display: block
-}
-
-.nav-stacked>li {
-    float: none
-}
-.nav-stacked>li+li {
-    margin-top: 2px;
-    margin-left: 0
 }
 
 .table-borderless tbody tr td, .table-borderless tbody tr th, .table-borderless thead tr th {

@@ -6,13 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>The Inequality of Wealth in America</title>
 
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/dc.css">
-    <link rel="stylesheet" href="css/jquery-ui.css">
-
-    <link rel="stylesheet" href="css/nouislider.min.css">
+	<link rel="stylesheet" href="css/commons/bootstrap.min.css">
+    <link rel="stylesheet" href="css/commons/font-awesome.min.css">
+	<link rel="stylesheet" href="css/commons/dc.css">
+    <link rel="stylesheet" href="css/commons/jquery-ui.css">
+    <link rel="stylesheet" href="css/commons/nouislider.min.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="80">
     
@@ -84,11 +83,12 @@
 
                 <h2><strong>Quick Info:</strong></h2>
                 <ul>
+                    <li>University of California at Berkeley economist Emmanuel Saez estimates that between 2009 and 2012, the top 1 percent captured 95 percent of total income growth.</li>
                     <li>If your income around $98,000 a year, you are in the top 25%</li>
                     <li>If you income around $155,000 at year, you are in the top 10%</li>
-                    <li>The Top 1 Percent Of Americans Owns 40 Percent Of The Nation’s Wealth</li>
-                    <li>The Top 1 Percent Of Americans Take Home 24 Percent Of National Income</li>
-                    <li>The Top 1 Percent Of Americans Own Half Of The Country’s Stocks, Bonds, And Mutual Funds</li>
+                    <li>The top 1 percent of Americans owns 40 percent of the nation’s wealth</li>
+                    <li>The top 1 percent of Americans take home 24 percent of national income</li>
+                    <li>The top 1 percent of Americans own half of the country’s stocks, bonds, and mutual funds</li>
                 </ul>
                 <p>*source: CNN Money and Business Insider</p>
                 <h2><strong>Conclusion</strong></h2>
@@ -101,7 +101,6 @@
                     of countries by distribution of wealth
                     </br></br>
                     Happy exploring!
-
                 </p>
             </div>
         </div>
@@ -112,11 +111,11 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="bs-callout bs-callout-info">
-                    Enter your household income and see how you rank in all 50 states across the country.
+                    Enter your household income and see how you rank in all 50 states across the country. Once you have seen the how you rank across the whole United States, click on each state to see how you rank per state.
                     <br/><br/>
-                    *Source: New York Times analysis of University of Minnesota Population Center data
+                    *Data Source: New York Times analysis of University of Minnesota Population Center data
                     <br/>
-                    *Source: EPI: <a href="http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/">http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/</a>
+                    *Data Source - EPI: <a href="http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/">http://www.epi.org/publication/income-inequality-by-state-1917-to-2012/</a>
                 </div>
             </div>
         </div>
@@ -125,7 +124,7 @@
         <div class="row col-md-12" style="margin-bottom:35px;">
             <div class="well" style="margin-bottom:20px; margin-right:-25px; height:130px;">
                 <div class="col-md-12">
-                    <div class="col-md-3"><strong>Enter a household income: </strong> </div>
+                    <div class="col-md-3"><strong>Enter a household income ($ US): </strong> </div>
                     <input type="text" id="input-with-keypress" style="margin-bottom:5px;" class="col-md-9">
                 </div>
                 <div class="col-md-12">
@@ -166,8 +165,9 @@
         </div>
     </div>
     <hr/>
+    <hr/>
     <div id="section21" class="container-fluid">
-        <h1>Average Wealth Distribution Area Chart</h1>
+        <h1>Average Wealth Distribution Part 1</h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="bs-callout bs-callout-info">
@@ -239,7 +239,7 @@
     </div>
     <hr/>
     <div id="section31" class="container-fluid">
-        <h1>Average Wealth Distribution Stacked Bar Chart</h1>
+        <h1>Average Wealth Distribution Part 2</h1>
         <div class="row">
             <div class="col-md-12">
                 <div class="bs-callout bs-callout-info">
@@ -261,7 +261,7 @@
     </div>
     <hr/>
     <div id="section41" class="container-fluid">
-        <h1>Average Wealth Distribution Small Multiples Chart</h1>
+        <h1>Average Wealth Distribution Part 3</h1>
         <div class="row">
             <div class="col-md-12 bs-callout bs-callout-info">
                Here you can see for each state the dotted red line depicts the national average of household income in America.
@@ -432,6 +432,7 @@
             </div>
         </div>
     </div>
+
     <!-- Modal Box-->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -453,32 +454,27 @@
     </div><!-- /.modal -->
 
 	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
-	<script src="js/jquery.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/d3.min.js"></script>
-	<script src="js/crossfilter.js"></script>
-	<script src="js/dc.js"></script>
-	<script src="js/queue.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/d3.tip.js"></script>
-    <script src="js/nouislider.min.js"></script>
-    <script src="js/topojson.v1.min.js"></script>
-    <script src="js/colorbrewer.v1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="js/commons/jquery.min.js"></script>
+	<script src="js/commons/bootstrap.min.js"></script>
+	<script src="js/commons/d3.min.js"></script>
+	<script src="js/commons/crossfilter.js"></script>
+	<script src="js/commons/dc.js"></script>
+	<script src="js/commons/queue.min.js"></script>
+    <script src="js/commons/jquery-ui.js"></script>
+    <script src="js/commons/d3.tip.js"></script>
+    <script src="js/commons/nouislider.min.js"></script>
+    <script src="js/commons/topojson.v1.min.js"></script>
+    <script src="js/commons/colorbrewer.v1.min.js"></script>
 
     <!-- Load Global Variables -->
-    <script src="js/us_states.js"></script>
+    <script src="js/globals/us_states.js"></script>
 
     <!-- Visualization objects -->
-    <script src="js/choropleth2.js"></script>
-
-    <!--<script src="js/timeline.js"></script>-->
-    <script src="js/lineChart.js"></script>
-    <script src="js/areaChart.js"></script>
-    <script src="js/smallMultiples.js"></script>
-    <script src="js/householdIncome.js"></script>
-    <script src="js/barchart.js"></script>
-    <script src="js/bar-slider.js"></script>
+    <script src="js/diagrams/choropleth.js"></script>
+    <script src="js/diagrams/areaChart.js"></script>
+    <script src="js/diagrams/smallMultiples.js"></script>
+    <script src="js/diagrams/householdIncome.js"></script>
+    <script src="js/diagrams/barchart.js"></script>
 
     <!-- Load data, create visualizations -->
     <script src="js/main.js"></script>
